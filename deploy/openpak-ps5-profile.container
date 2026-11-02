@@ -9,7 +9,7 @@ Network=openpak.network
 # IP= is assigned with pin-ips.sh --apply.
 # Traefik routes Host(m.np.playstation.com) && PathPrefix(/api/userProfile), Host(dms.api.playstation.com)
 # and Host(us-prof.np.community.playstation.net) to :8080.
-EnvironmentFile=/etc/openpak/.env
+EnvironmentFile=/etc/openpak/ps5.env
 Environment=PS5_ADDR=:8080
 
 [Service]
