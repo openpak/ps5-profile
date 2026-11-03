@@ -30,7 +30,8 @@ docker build -t ps5-profile .
 |---|---|---|---|
 | `PS5_ADDR` | no | `:8080` | listen address (plain HTTP behind Traefik) |
 | `PS5_TOKEN_KEY` | yes | | HMAC key shared with ps5-auth, 32 bytes or more |
-| `PS5_ACCOUNT_CORE_URL`, `PS5_ACCOUNT_CORE_TOKEN` | no | | account core; both or neither. Neither: in-memory accounts |
+| `PS5_ACCOUNT_CORE_URL`, `PS5_ACCOUNT_CORE_TOKEN` | yes | | account core; both. Without them the service exits unless `PS5_DEV_MEMORY=1` |
+| `PS5_DEV_MEMORY` | no | | `1`: in-memory accounts (local development only) |
 | `PS5_PROFILE_AVATAR_URL` | no | | base URL of avatar images |
 | `PS5_LOG_LEVEL` | no | `info` | read by ps5-common/config |
 

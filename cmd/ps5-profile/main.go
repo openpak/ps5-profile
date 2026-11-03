@@ -37,8 +37,11 @@ func main() {
 			log.Error("account core", "err", err)
 			os.Exit(2)
 		}
+	} else if !config.DevMemory(os.Getenv) {
+		log.Error("PS5_ACCOUNT_CORE_URL and PS5_ACCOUNT_CORE_TOKEN are required (PS5_DEV_MEMORY=1 only for local development)")
+		os.Exit(2)
 	} else {
-		log.Warn("PS5_ACCOUNT_CORE_URL unset: other accounts' profiles are not served (in-memory dev mode)")
+		log.Warn("PS5_DEV_MEMORY=1: in-memory accounts, other accounts' profiles are not served (development only)")
 		core = accountcore.NewMemory()
 	}
 	s := profile.New(core, signer, os.Getenv("PS5_PROFILE_AVATAR_URL"))
